@@ -1,3 +1,4 @@
+
 import dotenv from "dotenv";
 dotenv.config();
 import { Router } from "express"
@@ -6,8 +7,8 @@ import  zod from  "zod"
 import jwt from "jsonwebtoken"
 import User from "../dbSchema/userSchema"
 import Account from "../dbSchema/accountSchema"
-import { JWT_SECRET } from "../config";
 const userRouter = Router();
+const JWT_SECRET = process.env.JWT_SECRET as string;
 userRouter.post("/signup" ,async (req: Request, res: Response) : Promise<void> => { 
     console.log("hi there");
     const body = req.body

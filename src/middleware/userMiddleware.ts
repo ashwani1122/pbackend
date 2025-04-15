@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
-import  { JWT_SECRET }  from "../config";
 
 import { NextFunction, Response, Request } from "express";
+const JWT_SECRET = process.env.JWT_SECRET as string;
 export default function userMiddleware(req: Request, res: Response, next: NextFunction) {
     const token = req.headers.authorization;
             if (!token) {
