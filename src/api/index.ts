@@ -2,13 +2,14 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import express from "express";
-import userRouter from "./routes/userRoute";
-import accountRouter from "./routes/accountRouter";
-import usersRouter from "./routes/usersRouter";
-import balanceInquiry from "./routes/balanceInquiry";
-import transferMoney from "./routes/transferMoney";  
+import userRouter from "../routes/userRoute";
+import accountRouter from "../routes/accountRouter";
+import usersRouter from "../routes/usersRouter";
+import balanceInquiry from "../routes/balanceInquiry";
+import transferMoney from "../routes/transferMoney";  
 import mongoose from "mongoose";
 import cors from "cors";
+import e from 'express';
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -33,3 +34,5 @@ async function main(){
     })
 }
 main();
+
+export default app;
