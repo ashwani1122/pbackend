@@ -5,6 +5,7 @@ import usersRouter from "./routes/usersRouter";
 import balanceInquiry from "./routes/balanceInquiry";
 import transferMoney from "./routes/transferMoney";  
 import mongoose from "mongoose";
+import { MONGO_URI, PORT } from "./config";
 import cors from "cors";
 const app = express();
 app.use(cors());
@@ -15,9 +16,9 @@ app.use("/api/v1/user", usersRouter);
 app.use("/api/v1/user", balanceInquiry);
 app.use("/api/v1/user", transferMoney);
 async function main(){
-    await mongoose.connect("mongodb+srv://ashwanisingh:elVZUtternK9kiNa@cluster0.vk9uv.mongodb.net/paytmdb").then(() => {
-        app.listen(3000, () => {
-            console.log("Server is listening on port 3000");
+    await mongoose.connect(MONGO_URI).then(() => {
+        app.listen(PORT, () => {
+            console.log(`Server is listening on port ${PORT}`);
         })
     })
 }
